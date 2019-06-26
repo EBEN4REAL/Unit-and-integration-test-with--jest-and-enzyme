@@ -1,15 +1,13 @@
 import axios from 'axios';
 import types from './types';
 
-export const fetchPosts = () => async (dispatch) => {
-	await axios.get('https://test.wineapp.me/api/v1/wines')
+export const fetchWines = () => {
+	axios.get('https://test.wineapp.me/api/v1/wines')
 		.then(res => {
-			dispatch({
-				type: types.GET_WINES,
-				payload:  red.data
-			})
+			console.log(res.data);
 		})
 		.catch(err => {
-			consoe.log(err);
-		})
-};
+			console.log(err);
+	})
+}
+
