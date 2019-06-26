@@ -7,7 +7,7 @@ import Headline from './components/Headline';
 import ListItem from './components/ListItem';
 import Button from './components/button';
 import {connect}  from 'react-redux';
-import {fetchWines} from './actions';
+import {fetchWines} from './store/actions';
 
 const tempArr = [{
   name: 'Eben',
@@ -16,12 +16,6 @@ const tempArr = [{
 }]
 
 class App extends React.Component {
-
-
-  state = {
-    listItems: [{title: "Eben 1", desc: "desc 1"}, {title: "Eben 2", desc: "desc 2"}],
-
-  }
 
   componentDidMount(){
     this.props.dispatch(fetchWines()).then(res => {

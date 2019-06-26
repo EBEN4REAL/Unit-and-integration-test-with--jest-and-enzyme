@@ -1,4 +1,4 @@
-import {types}  from '../../../actions/types';
+import {types}  from '../../actions/types';
 import Enzyme , {shallow} from 'enzyme';
 import enzymeAdapter from 'enzyme-adapter-react-16';
 import winesReducer from './reducer';
@@ -11,7 +11,7 @@ describe("Wines Reducer" , () => {
 	
 	it("should return default  state" , () => {
 		const newState = winesReducer(undefined, {});
-		expect(newState).toEqual([]);
+		expect(newState).toEqual({});
 	});
 
 	it("should return new state if receiving type" , () => {
