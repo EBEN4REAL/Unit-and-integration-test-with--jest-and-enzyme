@@ -1,13 +1,16 @@
 import axios from 'axios';
-import types from './types';
+import {types} from './types';
 
 export const fetchWines = () => {
-	axios.get('https://test.wineapp.me/api/v1/wines')
-		.then(res => {
-			console.log(res.data);
-		})
-		.catch(err => {
-			console.log(err);
-	})
+	let req = axios.get('https://test.wineapp.me/api/v1/wines')
+		.then(res =>  res.data)
+			.catch(err => {
+				console.log(err);
+			})
+
+	return {
+		type: types.GET_WINES,
+		payload: req
+	}
 }
 

@@ -23,6 +23,12 @@ class App extends React.Component {
 
   }
 
+  componentDidMount(){
+    this.props.dispatch(fetchWines()).then(res => {
+      console.log(res.payload);
+    })
+  }
+
     render() {
 
       const configButton = {
