@@ -29,25 +29,32 @@ class App extends React.Component {
     }
   
     render() {
-
       console.log(this.props);
-        return (
-          <div>
-            <Header />
-            <section className="main">
-              <Headline header="Wines" tempArr={tempArr} desc="Click the button to render wines!"/>
-              <Button variant="contained" color="primary" onClick={() => this.fetchWines()}>
-                Load Wines
-              </Button>
+      const {wines} = this.props;
+      let loadWines;
+      if(wines != null){
+        loadWines = wines.wines.map((wine, key) => (
+            <Card key={key}/>
+        ))
+        console.log(wines.wines);
+      }
+      return (
+        <div>
+          <Header />
+          <section className="main">
+            <Headline header="Wines" tempArr={tempArr} desc="Click the button to render wines!"/>
+            <Button variant="contained" color="primary" onClick={() => this.fetchWines()}>
+              Load Wines
+            </Button>
 
-              <div style={{marginTop: '50px'}}>
-                <Card  />
-              </div>
-             
-            </section>
-            
-          </div>
-        );
+            <div style={{marginTop: '50px'}}>
+              {loadWines}
+            </div>
+           
+          </section>
+          
+        </div>
+      );
     }
 }
 
