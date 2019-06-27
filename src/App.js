@@ -9,6 +9,9 @@ import {connect}  from 'react-redux';
 import {fetchWines} from './store/actions';
 import Button from '@material-ui/core/Button';
 import Card from './components/card';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import Wines from './components/WinesComponent';
 
 
 
@@ -33,7 +36,14 @@ class App extends React.Component {
       let loadWines;
       if(wines != null){
         loadWines = wines.wines.map((wine, key) => (
-            <Card key={key} {...wine}/>
+            <Grid  key={key} container  spacing={2}>
+              <Grid item xs={6}>
+                <Paper style={{textAlign: 'center'}}>
+                  <Card {...wine}/>
+                </Paper>
+              </Grid>
+            </Grid>
+            
         ))
         console.log(wines.wines);
       }
@@ -48,6 +58,7 @@ class App extends React.Component {
 
             <div style={{marginTop: '50px'}}>
               {loadWines}
+              <Wines />
             </div>
            
           </section>
