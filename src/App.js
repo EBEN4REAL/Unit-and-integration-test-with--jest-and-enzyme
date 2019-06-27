@@ -33,7 +33,7 @@ class App extends React.Component {
       let loadWines;
       if(wines != null){
         loadWines = wines.wines.map((wine, key) => (
-            <Card key={key}/>
+            <Card key={key} {...wine}/>
         ))
         console.log(wines.wines);
       }

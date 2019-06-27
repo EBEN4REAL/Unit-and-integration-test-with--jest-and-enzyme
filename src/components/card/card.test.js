@@ -15,5 +15,5 @@ describe("Card Component" , () => {
 		console.log(component);
 		const cardWrapper = component.find(`[data-test='cardComponent']`);
 		expect(cardWrapper.length).toBe(1);
-	})
+	});
 });

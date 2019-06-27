@@ -15,6 +15,7 @@ import Button from '@material-ui/core/Button';
 class CardComponent extends React.Component {
   
     render() {
+      console.log(this.props);
         return (
           <div data-test="cardComponent">
               <div style={{marginTop: '50px'}} >
@@ -27,11 +28,10 @@ class CardComponent extends React.Component {
                     />
                     <CardContent>
                       <Typography gutterBottom variant="h5" component="h2">
-                        Lizard
+                        {this.props.name}
                       </Typography>
                       <Typography variant="body2" color="textSecondary" component="p">
-                        Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                        across all continents except Antarctica
+                        {this.props.producer.about}
                       </Typography>
                     </CardContent>
                   </CardActionArea>
