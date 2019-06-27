@@ -17,25 +17,22 @@ const tempArr = [{
 
 class App extends React.Component {
 
-  componentDidMount(){
-    this.props.dispatch(fetchWines()).then(res => {
-      console.log(res.payload);
-    })
-  }
 
+    fetchWines = () => {
+        this.props.dispatch(fetchWines()).then(res => {
+        console.log(res.payload);
+        console.log(this.props);
+      })
+    }
+  
     render() {
-
-      const configButton = {
-        buttonText: 'Get Wines',
-        emitEvent: this.fetch
-      }
+        console.log(this.props);
         return (
           <div>
             <Header />
             <section className="main">
               <Headline header="Wines" tempArr={tempArr} desc="Click the button to render wines!"/>
-              <Button {...configButton} />
-              
+              <Button  buttonText="Get Wines" emitEvent = {() => this.fetchWines()} />
             </section>
             
           </div>
@@ -45,7 +42,7 @@ class App extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    wines: state.wines
+    wines: state.winesReducer.newWines
   }
 }
 
