@@ -29,7 +29,6 @@ class App extends React.Component {
     }
   
     render() {
-      console.log(this.props);
       const {wines} = this.props;
       let loadWines;
       if(wines != null){

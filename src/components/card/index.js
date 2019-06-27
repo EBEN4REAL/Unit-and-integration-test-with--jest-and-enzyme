@@ -16,9 +16,9 @@ class CardComponent extends React.Component {
   
     render() {
         return (
-          <div>
-              <div style={{marginTop: '50px'}}>
-                 <Card style={{width: '300px'}}>
+          <div data-test="cardComponent">
+              <div style={{marginTop: '50px'}} >
+                 <Card style={{width: '300px'}} >
                   <CardActionArea>
                     <CardMedia
                       style={{height: '150px'}}
