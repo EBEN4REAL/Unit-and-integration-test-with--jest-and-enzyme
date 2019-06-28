@@ -1,6 +1,7 @@
 import checkPropTypes from 'check-prop-types';
 import {applyMiddleware, createStore} from 'redeux';
-import rootReducer from '../../src/reducers';
+import rootReducer from '../../src/store/reducers';
+import {middlewares} from '../../src/store'
 
 export const findByTestAttribute = (component, attr) => {
  	const wrapper = component.find(`[data-test='${attr}']`);
@@ -10,4 +11,4 @@ export const findByTestAttribute = (component, attr) => {
 export const checkProps = (component, expectedProps) => {
 	const propsErr = checkPropTypes(component.propTypes, expectedProps, 'props', component.name);
 	return propsErr;
-}
+};

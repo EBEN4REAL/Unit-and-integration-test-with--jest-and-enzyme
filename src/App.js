@@ -32,21 +32,7 @@ class App extends React.Component {
     }
   
     render() {
-      const {wines} = this.props;
-      let loadWines;
-      if(wines != null){
-        loadWines = wines.wines.map((wine, key) => (
-            <Grid  key={key} container  spacing={2}>
-              <Grid item xs={6}>
-                <Paper style={{textAlign: 'center'}}>
-                  <Card {...wine}/>
-                </Paper>
-              </Grid>
-            </Grid>
-            
-        ))
-        console.log(wines.wines);
-      }
+      
       return (
         <div>
           <Header />
@@ -57,7 +43,7 @@ class App extends React.Component {
             </Button>
 
             <div style={{marginTop: '50px'}}>
-              {loadWines}
+              
               <Wines />
             </div>
            

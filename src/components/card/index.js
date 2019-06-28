@@ -1,48 +1,27 @@
 import React from 'react';
-
-
-// Card importsw
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-
+import {connect} from 'react-redux';
+import './styles.scss';
+import {configParams} from '../../config';
 
 
  const CardComponent = (props) => {
     return (
-      <div data-test="cardComponent">
-          <div style={{marginTop: '50px'}} >
-             <Card style={{width: '300'}} >
-              <CardActionArea>
-                <CardMedia
-                  style={{height: '150px'}}
-                  image="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/cheap-wine-1525366740.jpg?crop=1.00xw:1.00xh;0,0&resize=768:*"
-                  title="Contemplative Reptile"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    {props.name}
-                  </Typography>
-                  <Typography variant="body2" color="textSecondary" component="p">
-                    {props.producer.about}
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-              <CardActions>
-                <Button size="small" color="primary">
-                  Share
-                </Button>
-                <Button size="small" color="primary">
-                  Learn More
-                </Button>
-              </CardActions>
-            </Card>
-          </div>
+      <div>
+           <div className="cardSection">
+             <img src={configParams.cloudinaryUrl + "/" + props.media[0].public_id} alt={props.name} style={{width: "100%"}} />
+            <p><b>Wine Name: </b>{props.name}</p>
+            <p className="price"></p>
+            <p className="producer">Produced by <b>{props.producer.name}</b></p>
+            <p><button>View Details</button></p>
+        </div>
       </div>
+     
     );
  }
-export default CardComponent;
+const mapStateToProps = (state) => {
+  return {
+    wines: state.winesReducer.newWines
+  }
+}
+
+export default connect(mapStateToProps)(CardComponent);
