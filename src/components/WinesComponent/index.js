@@ -1,44 +1,41 @@
 import React from 'react';
-import Paper from '@material-ui/core/Paper';
-
-import Grid from '@material-ui/core/Grid';
 import WineCard from '../card';
-
-import { makeStyles } from '@material-ui/core/styles';
 import {connect}  from 'react-redux';
 import Card from '../card';
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
-  },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  },
-}));
 
 
+class Wines extends React.Component {
 
-const Wines = (props) => {
-	const classes = useStyles();
+	state =  {
+		currentPage: 1,
+		nextPageUrl: null
+	}
 
-	const {wines} = props;
+	nextPageUrl(){
+
+	}
+
+	render(){
+	  
+  	  const {wines} = this.props;
       let loadWines;
+      let nexthref;
       if(wines != null){
         loadWines = wines.wines.map((wine, key) => (
               <Card {...wine} key={key}/>
-        ))
-        console.log(wines.wines);
-      }
+        ));
 
-	return (
-		 <Grid container spacing={3}>
-	        {loadWines}
-	      
-	      </Grid>
-	)
+        console.log(wines.wines);
+        console.log(wines.meta.next_href);
+      }
+		return (
+			<div>
+				 {loadWines}
+				 <button onClick={() => this.nextPageUrl()}>Next Page</button>
+			</div> 
+		)
+	}
 }
 
 const mapStateToProps = (state) => {
