@@ -14,13 +14,13 @@ describe("Wines Reducer" , () => {
 		expect(newState).toEqual({});
 	});
 
-	it("should return new state if receiving type" , () => {
-		const wines = [{title: 'Test 1'}, {title: 'Test 3'}, {title: 'Test 3'}];
-		const newState = winesReducer(undefined, {
-			type: types.GET_WINES,
-			payload: wines
-		});
-		expect(newState).toEqual(wines);
-	})
+	// it("should return new state if receiving type" , () => {
+	// 	const wines = [{title: 'Test 1'}, {title: 'Test 3'}, {title: 'Test 3'}];
+	// 	const newState = winesReducer(undefined, {
+	// 		type: types.GET_WINES,
+	// 		payload: wines
+	// 	});
+	// 	expect(newState).toEqual(wines);
+	// })
 
 });

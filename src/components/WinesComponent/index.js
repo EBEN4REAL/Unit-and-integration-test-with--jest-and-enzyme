@@ -24,8 +24,6 @@ const useStyles = makeStyles(theme => ({
 const Wines = (props) => {
 	const classes = useStyles();
 
-	console.log(props.wines);
-
 	const {wines} = props;
       let loadWines;
       if(wines != null){

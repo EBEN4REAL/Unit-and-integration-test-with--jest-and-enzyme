@@ -8,9 +8,6 @@ import ListItem from './components/ListItem';
 import {connect}  from 'react-redux';
 import {fetchWines} from './store/actions';
 import Button from '@material-ui/core/Button';
-import Card from './components/card';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
 import Wines from './components/WinesComponent';
 
 
