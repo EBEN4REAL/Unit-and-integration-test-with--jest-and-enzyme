@@ -8,37 +8,28 @@ import { makeStyles } from '@material-ui/core/styles';
 import {connect}  from 'react-redux';
 import Card from '../card';
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
-  },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  },
-}));
 
 
+class Wines extends React.Component {
 
-const Wines = (props) => {
-	const classes = useStyles();
+	render(){
+		const {wines} = this.props;
+	      let loadWines;
+	      if(wines != null){
+	        loadWines = wines.wines.map((wine, key) => (
+	              <Card {...wine} key={key}/>
+	        ));
+	        console.log(wines.wines);
+	      }
 
-	const {wines} = props;
-      let loadWines;
-      if(wines != null){
-        loadWines = wines.wines.map((wine, key) => (
-              <Card {...wine} key={key}/>
-        ))
-        console.log(wines.wines);
-      }
-
-	return (
-		 <Grid container spacing={3}>
-	        {loadWines}
-	      
-	      </Grid>
-	)
+		return (
+			 <Grid container spacing={3}>
+		        {loadWines}
+		      
+		      </Grid>
+		)
+	}
+	
 }
 
 const mapStateToProps = (state) => {
