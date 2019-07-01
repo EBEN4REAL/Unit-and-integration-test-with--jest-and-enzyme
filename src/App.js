@@ -24,7 +24,8 @@ class App extends React.Component {
   state = {
     wineRendered: false,
     clickedGetWinesButton: false,
-    nextUrl: null
+    nextUrl: null,
+    currentPage: 1
   }
 
 
@@ -59,8 +60,8 @@ class App extends React.Component {
               Load Wines
             </Button>
 
-            <div style={{marginTop: '50px'}}>
-              <Wines wineRendered={this.state.wineRendered}/>
+            <div style={{marginTop: '50px', marginBottom: '50px'}}>
+              <Wines wineRendered={this.state.wineRendered} currentPage={this.state.currentPage}/>
               {loader}
             </div>
            

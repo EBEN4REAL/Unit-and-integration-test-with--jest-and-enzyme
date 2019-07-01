@@ -16,13 +16,8 @@ describe("Wines compoennt" , () => {
 	const propsConfig = {
 		wineRendered: true
 	}
-
-	
 	it("Renders without errors" , () => {
-		const component = (<Provider store={store}><WinesComponent  {...propsConfig} /></Provider>)
-		// const newComponent = shallow(component);
-		// const wrapper = newComponent.find(`[data-test='winesComponent']`);
-		// expect(wrapper.length).toBe(1);
+		const component = (<Provider store={store}><WinesComponent  {...propsConfig} /></Provider>);
 		const div = document.createElement("div");
 		ReactDom.render(component , div);
 	});

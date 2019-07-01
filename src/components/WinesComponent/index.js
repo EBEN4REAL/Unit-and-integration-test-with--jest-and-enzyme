@@ -30,7 +30,17 @@ class Wines extends React.Component {
 
       if(this.props.wineRendered){
       		button =  ( 
-      			<Button style={{marginBottom: '20px'}} color="primary" variant="contained" >Load More Wines...</Button>
+      			<button style=
+      				{{
+      					marginBottom: '20px', 
+      					backgroundColor: "grey", 
+      					padding: '5px',
+      					color: '#FFFFFF',
+      					outline: 'none',
+      					border: 'none',
+      					cursor: 'pointer'
+      				}} 
+      				color="primary" variant="contained" >Load More Wines...</button>
   			)
   	  }
 
