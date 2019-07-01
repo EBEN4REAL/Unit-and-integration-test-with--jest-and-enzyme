@@ -4,7 +4,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 const Loader = (props) => {
 	return (
 		<div>
-			<CircularProgress disableShrink />
+			<CircularProgress disableShrink style={{textaLIGN: 'center'}} />
 		</div>
 	)
 }

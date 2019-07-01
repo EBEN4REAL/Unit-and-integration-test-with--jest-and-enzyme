@@ -36,7 +36,7 @@ class Wines extends React.Component {
 
 
 		return (
-			<div>
+			<div data-test='winesComponent'>
 				 <Grid container spacing={3}>
 				 	{loadWines}
 			      </Grid>

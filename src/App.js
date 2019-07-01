@@ -23,20 +23,26 @@ class App extends React.Component {
 
   state = {
     wineRendered: false,
-    clickedGetWinesButton: false
+    clickedGetWinesButton: false,
+    nextUrl: null
   }
 
 
     fetchWines = () => {
         this.setState({clickedGetWinesButton: true})
         this.props.dispatch(fetchWines()).then(res => {
-        this.setState({wineRendered: true});
+          this.setState({wineRendered: true});
+          this.setState({nextUrl: res.payload.meta.next_href});
       })
     }
   
     render() {
 
       let loader;
+      if(this.state.wineRendered){
+        console.log(this.state.nextUrl);
+      }
+      
 
       if(!this.state.wineRendered && this.state.clickedGetWinesButton){
         loader = (
@@ -45,7 +51,7 @@ class App extends React.Component {
       }
       
       return (
-        <div>
+        <div >
           <Header />
           <section className="main">
             <Headline header="Wines" tempArr={tempArr} desc="Click the button to render wines!"/>
