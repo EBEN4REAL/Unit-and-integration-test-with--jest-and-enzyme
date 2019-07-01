@@ -20,9 +20,14 @@ const tempArr = [{
 
 class App extends React.Component {
 
+  state = {
+    wineRendered: false
+  }
+
 
     fetchWines = () => {
         this.props.dispatch(fetchWines()).then(res => {
+        this.setState({wineRendered: true})
         console.log(res.payload);
         console.log(this.props);
       })
@@ -41,7 +46,7 @@ class App extends React.Component {
 
             <div style={{marginTop: '50px'}}>
               
-              <Wines />
+              <Wines wineRendered={this.state.wineRendered}/>
             </div>
            
           </section>

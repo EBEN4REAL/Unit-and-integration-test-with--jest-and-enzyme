@@ -11,7 +11,7 @@ export const fetchWines = () => {
 
 	return {
 		type: types.GET_WINES,
-		payload: req
+		payload: req,
 	}
 }
 
