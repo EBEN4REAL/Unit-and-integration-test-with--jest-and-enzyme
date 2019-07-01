@@ -9,7 +9,8 @@ import {connect}  from 'react-redux';
 import {fetchWines} from './store/actions';
 import Button from '@material-ui/core/Button';
 import Wines from './components/WinesComponent';
-
+import CircularProgress from '@material-ui/core/CircularProgress';
+import Loader from './components/Loader';
 
 
 const tempArr = [{
@@ -21,19 +22,27 @@ const tempArr = [{
 class App extends React.Component {
 
   state = {
-    wineRendered: false
+    wineRendered: false,
+    clickedGetWinesButton: false
   }
 
 
     fetchWines = () => {
+        this.setState({clickedGetWinesButton: true})
         this.props.dispatch(fetchWines()).then(res => {
-        this.setState({wineRendered: true})
-        console.log(res.payload);
-        console.log(this.props);
+        this.setState({wineRendered: true});
       })
     }
   
     render() {
+
+      let loader;
+
+      if(!this.state.wineRendered && this.state.clickedGetWinesButton){
+        loader = (
+          <Loader />
+        )
+      }
       
       return (
         <div>
@@ -45,8 +54,8 @@ class App extends React.Component {
             </Button>
 
             <div style={{marginTop: '50px'}}>
-              
               <Wines wineRendered={this.state.wineRendered}/>
+              {loader}
             </div>
            
           </section>

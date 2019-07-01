@@ -16,23 +16,23 @@ class Wines extends React.Component {
 
 	
 	render(){
-		const {wines} = this.props;
+	  const {wines} = this.props;
 
-	      let loadWines;
-	      if(wines != null){
-	        loadWines = wines.wines.map((wine, key) => (
-	              <Card {...wine} key={key}/>
-	        ));
-	        console.log(wines.wines);
-	      }
+      let loadWines;
+      if(wines != null){
+        loadWines = wines.wines.map((wine, key) => (
+              <Card {...wine} key={key}/>
+        ));
+        console.log(wines.wines);
+      }
 
-	      let button;
+      let button;
 
-	      if(this.props.wineRendered){
-	      		button =  ( 
-	      			<Button style={{padding: '20px'}}>Load More Wines...</Button>
-      			)
-	      	}
+      if(this.props.wineRendered){
+      		button =  ( 
+      			<Button style={{marginBottom: '20px'}} color="primary" variant="contained" >Load More Wines...</Button>
+  			)
+  	  }
 
 
 		return (
